@@ -1,14 +1,14 @@
-CREATE table Payment
+CREATE table Salary
 (
-    payment_id INT PRIMARY KEY identity(1,1),
+    salary_id INT PRIMARY KEY identity(1,1),
     amount FLOAT,
     currency VARCHAR(3) not null,
     work_hours INT,
     vacation_days INT
 );
-CREATE table Purchasement
+CREATE table Card_details
 (
-    purchase_id INT PRIMARY KEY identity(1,1),
+    det_id INT PRIMARY KEY identity(1,1),
     bank VARCHAR(30),
     card_type VARCHAR(10),
     country VARCHAR(30),
@@ -28,13 +28,13 @@ CREATE table Systems
 CREATE table Roles
 (
     roles_id INT PRIMARY KEY identity(1,1),
-    payment_id INT,
+    salary_id INT,
     role_title VARCHAR(30) not null,
     responsibilities VARCHAR(50),
     agreements VARCHAR(50),
     qualifications VARCHAR(50),
     privileges VARCHAR(50),
-    FOREIGN KEY (payment_id) REFERENCES Payment(payment_id)
+    FOREIGN KEY (salary_id) REFERENCES Salary(salary_id)
 );
 CREATE table Creator
 (
@@ -50,13 +50,13 @@ CREATE table Games
 (
     games_id INT PRIMARY KEY identity(1,1),
     title VARCHAR(20) not null,
-    purchase_id INT,
+    card_id INT,
     creator_id INT,
     system_id INT,
     genre VARCHAR(10),
     dimension VARCHAR(2),
     cost FLOAT,
-    FOREIGN KEY (purchase_id) REFERENCES Purchasement(purchase_id),
+    FOREIGN KEY (card_id) REFERENCES Card_details(det_id),
     FOREIGN KEY (creator_id) REFERENCES Creator(creator_id),
     FOREIGN KEY (system_id) REFERENCES Systems(system_id)
 );
@@ -85,7 +85,7 @@ CREATE table Users
     FOREIGN KEY (inventory_id) REFERENCES Inventory(inventory_id)
 );
 
-INSERT INTO Payment
+INSERT INTO Salary
     (amount, currency, work_hours, vacation_days)
 VALUES
     (1000, 'AZN', 160, 15),
@@ -99,7 +99,7 @@ VALUES
     (2000, 'AZN', 160, 30),
     (500, 'AZN', 20, 5);
 
-INSERT INTO Purchasement
+INSERT INTO Card_details
     (bank, card_type, country, currency, sales_percentage)
 VALUES
     ('Bank of Baku', 'Credit', 'Azerbaijan', 'AZN', 0),
@@ -128,7 +128,7 @@ VALUES
     ('PC', 'macOS', 512, 'Apple M1 GPU', 16, 'Keyboard and Mouse');
 
 INSERT INTO Roles
-    (payment_id, role_title, responsibilities, agreements, qualifications, privileges)
+    (salary_id, role_title, responsibilities, agreements, qualifications, privileges)
 VALUES
     (3, 'Backend Developer', 'Develop and maintain server-side applications', 'Full-time', 'Bachelor in Computer Science', 'Remote Work'),
     (3, 'Graphic Designer', 'Create visual content for marketing', 'Part-time', 'Bachelor in Design', 'Flexible Hours'),
@@ -156,7 +156,7 @@ VALUES
     (9, 'SketchUp, AutoCAD', 'Gametitle10', 'creator10.com', 1);
 
 INSERT INTO Games
-    (title, purchase_id, creator_id, system_id, genre, dimension, cost)
+    (title, card_id, creator_id, system_id, genre, dimension, cost)
 VALUES
     ('Gametitle1', 1, 1, 2, 'Action', '3D', 59.99),
     ('Gametitle2', 1, 1, 2, 'Adventure', '3D', 49.99),
