@@ -85,6 +85,17 @@ CREATE table Users
     FOREIGN KEY (inventory_id) REFERENCES Inventory(inventory_id)
 );
 
+CREATE table Purchasement(
+    purchase_id INT PRIMARY KEY identity(1,1),
+    game_id INT,
+    user_id INT,
+    status VARCHAR(20),
+    bought_date DATE,
+    final_cost INT,
+    FOREIGN KEY (game_id) REFERENCES Games(games_id),
+    FOREIGN KEY (user_id) REFERENCES Users(user_id)
+);
+
 INSERT INTO Salary
     (amount, currency, work_hours, vacation_days)
 VALUES
