@@ -110,7 +110,8 @@ VALUES
     (1300, 'AZN', 160, 22),
     (1400, 'AZN', 160, 25),
     (2000, 'AZN', 160, 30),
-    (500, 'AZN', 20, 5);
+    (500, 'AZN', 20, 5),
+	(0, 'AZN', NULL, NULL);
 
 INSERT INTO Card_details
     (bank, card_type, country, currency, sales_percentage)
@@ -151,8 +152,8 @@ VALUES
     (2, 'Content Creator', 'Production of engaging content', 'Part-time', 'Creative Writing Skills', 'Flexible Hours'),
     (1, 'Community Manager', 'Management of community interactions', 'Full-time', 'Social Media Experience', 'Remote Work'),
     (2, 'Marketing Specialist', 'Development of marketing strategies', 'Contract', 'Marketing Degree', NULL),
-    (3, 'Creator', 'Creation and management of content', 'Full-time', 'Bachelor in Computer Science', 'Remote Work'),
-    (1, 'Users', NULL, NULL, NULL, NULL);
+    (11, 'Creator', 'Creation and management of content', 'Full-time', 'Bachelor in Computer Science', 'Remote Work'),
+    (11, 'Users', NULL, NULL, NULL, NULL);
 
 INSERT INTO Creator
     (roles_id, tools, projects, creator_page, one_many_people)
