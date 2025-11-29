@@ -55,7 +55,7 @@ CREATE table Games
     system_id INT,
     genre VARCHAR(10),
     dimension VARCHAR(2),
-    cost FLOAT,
+    original_cost FLOAT,
     FOREIGN KEY (card_id) REFERENCES Card_details(det_id),
     FOREIGN KEY (creator_id) REFERENCES Creator(creator_id),
     FOREIGN KEY (system_id) REFERENCES Systems(system_id)
@@ -169,7 +169,7 @@ VALUES
     (9, 'SketchUp, AutoCAD', 'Gametitle10', 'creator10.com', 1);
 
 INSERT INTO Games
-    (title, card_id, creator_id, system_id, genre, dimension, cost)
+    (title, card_id, creator_id, system_id, genre, dimension, original_cost)
 VALUES
     ('Gametitle1', 1, 1, 2, 'Action', '3D', 59.99),
     ('Gametitle2', 1, 1, 2, 'Adventure', '3D', 49.99),
