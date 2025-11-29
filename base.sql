@@ -92,8 +92,10 @@ CREATE table Purchasement(
     status VARCHAR(20),
     bought_date DATE,
     final_cost INT,
+    card_id INT,
     FOREIGN KEY (game_id) REFERENCES Games(games_id),
-    FOREIGN KEY (user_id) REFERENCES Users(user_id)
+    FOREIGN KEY (user_id) REFERENCES Users(user_id),
+    FOREIGN KEY (card_id) REFERENCES Card_details(det_id)
 );
 
 INSERT INTO Salary
@@ -212,3 +214,13 @@ VALUES
     (10, 'user8', 'pass8', 'user8@gmail.com', 8, 888.00, 'USA', '2002-08-08'),
     (10, 'user9', 'pass9', 'user9@example.com', 9, 999.00, 'Azerbaijan', '2003-09-09'),
     (10, 'user10', 'pass10', 'user10@example.com', 10, 1000.00, 'USA', '2004-10-10');
+
+INSERT INTO Purchasement
+    (game_id, user_id, status, bought_date, final_cost, card_id)
+VALUES
+    (3, 2, "Success", '2025-12-12', 30.00, 2),
+    (4, 1, "Fail", NULL, 45.00, NULL),
+    (1, 9, "Success", '2025-12-7', 10.00, 1),
+    (2, 7, "In cart", NULL, NULL, NULL),
+    (5, 6, "Success", '2025-7-12', 20.00, 3),
+    (6, 3, "Success", '2025-7-7', 25.00, 4);
